@@ -1,0 +1,11 @@
+// Typography defaults
+
+a {color: darken($primary-color, 50); }
+
+p {font-size: rem-calc(12px); }
+
+ul, ol, dl {
+	font-size: rem-calc(12px);
+	line-height: 1.6;
+} 
+

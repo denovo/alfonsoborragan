@@ -1,0 +1,26 @@
+// Royal Slider overides
+
+
+// set background for the slider to black;
+.rsUni, .rsUni .rsOverflow, .rsUni .rsSlide, .rsUni .rsVideoFrameHolder, .rsUni .rsThumbs {
+	background: black !important;
+	color: #FFF;
+}
+
+.rsDefault, .rsDefault .rsOverflow, .rsDefault .rsSlide, .rsDefault .rsVideoFrameHolder, .rsDefault .rsThumbs {
+	background: black !important;
+	color: #FFF;
+}
+
+
+// links in sliders
+.royalSlider a {
+	color: white;
+	font-size: 12px;
+
+}
+
+//  [ + ] button
+.reveal-main-content {
+
+}

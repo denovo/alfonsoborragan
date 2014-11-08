@@ -1,0 +1,36 @@
+{
+  "name": "gromf",
+  "version": "0.0.2",
+  "description": "Wordpress starter theme, based on Roots",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-autoprefixer": "*",
+    "gulp-concat": "*",
+    "gulp-imagemin": "*",
+    "gulp-jshint": "*",
+    "gulp-livereload": "*",
+    "gulp-minify-css": "*",
+    "gulp-rename": "*",
+    "gulp-ruby-sass": "^0.7.1",
+    "gulp-sass": "*",
+    "gulp-size": "*",
+    "gulp-svgmin": "*",
+    "gulp-uglify": "*",
+    "gulp-util": "*",
+    "jshint-stylish": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/schikulski/gromf.git"
+  },
+  "author": "Simen Schikulski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/schikulski/gromf/issues"
+  },
+  "homepage": "https://github.com/schikulski/gromf"
+}

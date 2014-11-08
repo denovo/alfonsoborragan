@@ -1,0 +1,33 @@
+.sidebar {
+	padding-top: 30px;
+	background-color: $topbar-bg-color;
+ }
+
+
+ .sidebar ul { list-style-type: none;}
+
+
+ .work-link {
+ 	color: black;
+	border-bottom: 1px solid black;
+	line-height: 1.3em;
+	padding-top: 6px;
+
+ }
+
+
+.sidebar-nav li {
+	display: inline-block;
+	text-align: center;
+	min-width: 60px;
+	a { 
+		display: inline-block;
+		width: 100%; 
+		padding: 8px; 
+		color: black; 
+		background-color: #E6F3E7;
+	}
+	a:hover {
+		background-color: scale-color($primary-color, $lightness: -14%);
+	}
+}
