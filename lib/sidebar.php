@@ -39,5 +39,6 @@ class Roots_Sidebar {
 
   private function check_page_template($page_template) {
     return is_page_template($page_template);
+    // return false;  // always show the sidebar menu
   }
 }

@@ -47,7 +47,7 @@ $font-weight-bold: bold !default;
 // We use these to control various global styles
 // $body-bg: blue;
 $body-font-color: #222;
-$body-font-family: Verdana, Arial, sans-serif;
+$body-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $body-font-weight: $font-weight-normal;
 $body-font-style: normal;
 
@@ -62,6 +62,10 @@ $body-font-style: normal;
 // We use these as default colors throughout
 $primary-color: #E6F3E7; // light green
 $secondary-color: #e7e7e7;
+$bg-gray: #F2F2F2;
+$lighter-gray-text: gray;
+$text-link-hover-color: #47934c;
+
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
@@ -134,8 +138,8 @@ $secondary-color: #e7e7e7;
 // $header-text-rendering: optimizeLegibility;
 
 // We use these to control header font sizes
-$h1-font-size: rem-calc(34);
-$h2-font-size: rem-calc(27);
+$h1-font-size: rem-calc(24);
+$h2-font-size: rem-calc(16);
 $h3-font-size: rem-calc(17);
 $h4-font-size: rem-calc(13);
 $h5-font-size: rem-calc(13);
@@ -960,9 +964,9 @@ $h6-font-size: 0.9rem;
 // $side-nav-list-margin: rem-calc(0 0 7 0);
 
 // We use these to control link styles.
-$side-nav-link-color: darken($primary-color, 50);
-$side-nav-link-color-active: scale-color($side-nav-link-color, $lightness: 30%);
-$side-nav-link-color-hover: scale-color($side-nav-link-color, $lightness: 30%);
+$side-nav-link-color: darken(black, 50);
+$side-nav-link-color-active: scale-color($primary-color, $lightness: 30%);
+$side-nav-link-color-hover: scale-color($primary-color, $lightness: 30%);
 $side-nav-font-size: rem-calc(12);
 // $side-nav-font-weight: $font-weight-normal;
 // $side-nav-font-weight-active: $side-nav-font-weight;
@@ -1186,7 +1190,7 @@ $side-nav-font-size: rem-calc(12);
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #F2F2F2;
+$topbar-bg-color: $bg-gray;
 $topbar-bg: $topbar-bg-color;
 
 // Height and margin

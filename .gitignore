@@ -10,6 +10,6 @@ wp-content/blogs.dir/
 wp-content/cache/
 wp-content/upgrade/
 wp-content/uploads/
-wp-content/wp-cache-config.php
 bower_components/
-node-modules/
+node_modules/
+wp-content/wp-cache-config.php

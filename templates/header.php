@@ -1,8 +1,8 @@
 
 <!-- only show the slider on the homepage -->
-<?php 
+<?php
   if ( is_page('homepage') ) {  echo get_new_royalslider(1); ?>
- 
+
 <?php
     }
 ?>

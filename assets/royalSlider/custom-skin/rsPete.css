@@ -11,7 +11,7 @@
 *    7. Preloader
 *    8. Caption
 *    
-*  Sprite: 'rs-default.png'
+*  Sprite: 'rs-pete.png'
 *  Feel free to edit anything
 *  If you don't some part - just delete it
 * 
@@ -55,29 +55,29 @@
 .rsPete.rsHor .rsArrowRight { right: 0; top:0; }
 
 .rsPete .rsArrowIcn {		
-	width: 32px;
-	height: 32px;
+	width: 42px;
+	height: 42px;
 	top: 50%;
 	left: 50%;
-	margin-top:-16px;	
-	margin-left: -16px;
+	margin-top:-21px;	
+	margin-left: -21px;
 
 	position: absolute;	
 	cursor: pointer;	
 	background: url('rs-pete.png');
 
 	background-color: #000;
-	background-color: rgba(0,0,0,0.75);
+	background-color: rgba(0,0,0,0);
 	*background-color: #000;
 	
-	border-radius: 2px;
+	display: none;
 }
 .rsPete .rsArrowIcn:hover {
 	background-color: rgba(0,0,0,0.9);
 }
 
 .rsPete.rsHor .rsArrowLeft .rsArrowIcn { background-image: url(arrowLeft.svg); }
-.rsPete.rsHor .rsArrowRight .rsArrowIcn { background-image: url(arrowLeft.svg);  }
+.rsPete.rsHor .rsArrowRight .rsArrowIcn { background-image: url(arrowRight.svg);  }
 
 .rsPete.rsVer .rsArrowLeft .rsArrowIcn { background-position: -96px -32px; }
 .rsPete.rsVer .rsArrowRight .rsArrowIcn { background-position: -96px -64px; }
@@ -233,7 +233,7 @@
 	margin-left: -8px;
 	position: absolute;	
 	cursor: pointer;	
-	background: url('rs-default.png');
+	background: url('rs-pete.png');
 }
 
 .rsPete.rsWithThumbsHor .rsThumbsArrowLeft .rsThumbsArrowIcn { background-position: -128px -32px; }
@@ -355,7 +355,7 @@
 	width: 32px;
 	height: 32px;
 
-	background: url('rs-default.png') 0 0;
+	background: url('rs-pete.png') 0 0;
 	background-color: #000;
 	background-color: rgba(0,0,0,0.75);
 	*background-color: #000;
@@ -398,7 +398,7 @@
 	-moz-transition: .3s;
 	transition: .3s;
 
-	background:url(rs-default.png) no-repeat 0 -32px;
+	background:url(/rs-pete.png) no-repeat 0 -32px;
 	background-color: #000;
 	background-color: rgba(0,0,0,0.75);
 	*background-color: #000;
@@ -432,7 +432,7 @@
 	margin: 6px;
 	width: 32px;
 	height: 32px;
-	background: url('rs-default.png') -64px 0;
+	background: url('rs-pete.png') -64px 0;
 	background-color: #000;
 	background-color: rgba(0,0,0,0.75);
 	*background-color: #000;
@@ -476,11 +476,12 @@
 	text-align: left;
 
 	background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0);
 
 	color: #FFF;
-	padding: 2px 8px;
-	width: auto;
+	padding: 12px;
+	width: 50%;
 	font-size: 12px;
-	border-radius: 2px;
+	line-height: 1.3em;
+	border-radius: 0;
 }

@@ -21,10 +21,10 @@ define('GOOGLE_ANALYTICS_ID', ''); // UA-XXXXX-Y (Note: Universal Analytics only
 function roots_main_class() {
   if (roots_display_sidebar()) {
     // Classes on pages with the sidebar
-    $class = 'small-12 medium-8';
+    $class = 'small-12 medium-9';
   } else {
     // Classes on full width pages
-    $class = 'small-12';
+    $class = 'small-12 medium-9';
   }
 
   return apply_filters('roots/main_class', $class);
@@ -55,8 +55,8 @@ function roots_display_sidebar() {
      * The second element must be an array even if there's only 1 argument.
      */
     array(
-      'is_404',
-      'is_front_page'
+      'is_404'
+      // 'is_front_page'
     ),
     /**
      * Page template checks (via is_page_template())

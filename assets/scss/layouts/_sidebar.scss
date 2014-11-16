@@ -1,10 +1,17 @@
 .sidebar {
 	padding-top: 30px;
 	background-color: $topbar-bg-color;
+	margin-top: -3px;
+	@media #{$small-only} {
+		margin-top: 0;
+	}
  }
 
 
- .sidebar ul { list-style-type: none;}
+ .sidebar ul {
+ 	list-style-type: none;
+ 	margin-left: 0;
+ }
 
 
  .work-link {
@@ -16,18 +23,40 @@
  }
 
 
-.sidebar-nav li {
+.sidebar-nav li, {
 	display: inline-block;
 	text-align: center;
 	min-width: 60px;
-	a { 
+	a {
 		display: inline-block;
-		width: 100%; 
-		padding: 8px; 
-		color: black; 
+		width: 100%;
+		padding: 8px;
+		color: black;
 		background-color: #E6F3E7;
 	}
 	a:hover {
 		background-color: scale-color($primary-color, $lightness: -14%);
 	}
+}
+
+
+
+.list__sidebar_artworks li {
+
+	a {
+		width: 100%;
+		color: black;
+		line-height: 2.5em;
+	}
+}
+
+.list__sidebar__artworks__parent-item {
+
+}
+
+
+.list__sidebar__artworks__children li {
+	margin-left: 1.25rem ;
+	a { color: $lighter-gray-text; }
+	a:hover { color: $text-link-hover-color }
 }

@@ -370,7 +370,7 @@ body {
   color: #222;
   padding: 0;
   margin: 0;
-  font-family: Verdana, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -1222,7 +1222,7 @@ select {
       color: #222;
       padding: 1rem;
       display: block;
-      font-family: Verdana, Arial, sans-serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 1rem; }
       .accordion .accordion-navigation > a:hover, .accordion dd > a:hover {
         background: #e3e3e3; }
@@ -1610,7 +1610,7 @@ button, .button {
   border-style: solid;
   border-width: 0px;
   cursor: pointer;
-  font-family: Verdana, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
@@ -2830,7 +2830,7 @@ div.icon-bar {
 
 .label {
   font-weight: normal;
-  font-family: Verdana, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-align: center;
   text-decoration: none;
   line-height: 1;
@@ -3197,7 +3197,7 @@ ul.pagination {
     color: #eee;
     font-weight: normal;
     font-size: 1rem;
-    font-family: Verdana, Arial, sans-serif; }
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
   .pricing-table .price {
     background-color: #f6f6f6;
     padding: 0.9375rem 1.25rem;
@@ -3205,7 +3205,7 @@ ul.pagination {
     color: #333;
     font-weight: normal;
     font-size: 2rem;
-    font-family: Verdana, Arial, sans-serif; }
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
   .pricing-table .description {
     background-color: #fff;
     padding: 0.9375rem;
@@ -3443,22 +3443,22 @@ dialog[open] {
   padding: 0.875rem 0;
   list-style-type: none;
   list-style-position: outside;
-  font-family: Verdana, Arial, sans-serif; }
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
   .side-nav li {
     margin: 0 0 0.4375rem 0;
     font-size: 0.75rem; }
     .side-nav li a:not(.button) {
       display: block;
-      color: #47934c;
+      color: black;
       margin: 0;
       padding: 0.4375rem 0.875rem; }
       .side-nav li a:not(.button):hover, .side-nav li a:not(.button):focus {
         background: rgba(0, 0, 0, 0.025);
-        color: #75bd7a; }
+        color: #eef7ee; }
     .side-nav li.active > a:first-child:not(.button) {
-      color: #75bd7a;
+      color: #eef7ee;
       font-weight: normal;
-      font-family: Verdana, Arial, sans-serif; }
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
     .side-nav li.divider {
       border-top: 1px solid;
       height: 0;
@@ -3466,7 +3466,7 @@ dialog[open] {
       list-style: none;
       border-top-color: white; }
     .side-nav li.heading {
-      color: #47934c;
+      color: black;
       font-size: 0.75rem;
       font-weight: bold;
       text-transform: uppercase; }
@@ -3564,7 +3564,7 @@ dialog[open] {
     display: inline;
     margin-left: 1rem;
     margin-bottom: 0.625rem;
-    font-family: Verdana, Arial, sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: normal;
     font-size: 0.875rem;
     color: #999; }
@@ -3845,7 +3845,7 @@ p {
 
 /* Default header styles */
 h1, h2, h3, h4, h5, h6 {
-  font-family: Verdana, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
   color: #222;
@@ -3859,10 +3859,10 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 0; }
 
 h1 {
-  font-size: 1.5rem; }
+  font-size: 0.875rem; }
 
 h2 {
-  font-size: 1.0625rem; }
+  font-size: 0.375rem; }
 
 h3 {
   font-size: 0.75rem; }
@@ -4012,9 +4012,9 @@ blockquote, blockquote p {
   h1, h2, h3, h4, h5, h6 {
     line-height: 1.4; }
   h1 {
-    font-size: 2.125rem; }
+    font-size: 1.5rem; }
   h2 {
-    font-size: 1.6875rem; }
+    font-size: 1rem; }
   h3 {
     font-size: 1.0625rem; }
   h4 {
@@ -4093,7 +4093,7 @@ blockquote, blockquote p {
       background: #efefef;
       color: #222;
       padding: 1rem 2rem;
-      font-family: Verdana, Arial, sans-serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 1rem; }
       .tabs dd > a:hover, .tabs .tab-title > a:hover {
         background: #e1e1e1; }
@@ -4379,7 +4379,7 @@ meta.foundation-mq-topbar {
       color: #000000;
       padding: 12px 0 12px 0;
       padding-left: 15px;
-      font-family: Verdana, Arial, sans-serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 0.625rem;
       font-weight: normal;
       text-transform: none; }
@@ -5214,10 +5214,23 @@ th.hide-for-touch {
 .clear {
   clear: both; }
 
+.no-pad {
+  padding: 0; }
+
+.no-pad-l {
+  padding-left: 0; }
+
+.no-pad-r {
+  padding-right: 0; }
+
+.no-pad-l-r {
+  padding-left: 0;
+  padding-right: 0; }
+
 /*=================================================================
 Import Roots Components - Do your SASS awesomeness here! Goodspeed young traveler :)
 =================================================================*/
-a {
+a:hover {
   color: #47934c; }
 
 p {
@@ -5226,6 +5239,15 @@ p {
 ul, ol, dl {
   font-size: 0.75rem;
   line-height: 1.6; }
+
+.heading__page-title {
+  padding-bottom: 42px; }
+
+p.byline.author {
+  display: none; }
+
+.page-category-label {
+  display: none; }
 
 .gallery-row {
   padding: 65% 0; }
@@ -5287,17 +5309,36 @@ figure.alignnone {
   color: white;
   font-size: 12px; }
 
+.list__news_events {
+  max-width: 50%;
+  padding-bottom: 42px; }
+  @media only screen and (max-width: 40em) {
+    .list__news_events {
+      max-width: 100%; } }
+
+.list_item__news a {
+  color: black;
+  line-height: 2.5em; }
+.list_item__news a:hover {
+  color: #47934c; }
+
+.news_separator {
+  border-color: #E6F3E7; }
+
 .main {
   padding-top: 30px; }
+
+hr {
+  border-color: #E6F3E7; }
 
 .header-wrap {
   position: relative; }
 
 .green-decoration {
   width: 100%;
-  height: 12px;
+  height: 18px;
   position: absolute;
-  bottom: -6px;
+  bottom: -9px;
   background-color: rgba(230, 243, 231, 0.4);
   z-index: 10; }
 
@@ -5314,15 +5355,37 @@ figure.alignnone {
     color: white;
     font-size: remCalc(10px); }
 
+nav.top-bar {
+  display: none; }
+  @media only screen and (max-width: 40em) {
+    nav.top-bar {
+      display: block; } }
+
 .top-bar-section ul li {
   background-color: #F2F2F2; }
 
+.toggle-topbar.menu-icon a span::after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 0;
+  top: 50%;
+  margin-top: -8px;
+  right: 15px;
+  box-shadow: 0 0px 0 1px #222222, 0 7px 0 1px #222222, 0 14px 0 1px #222222 !important;
+  width: 16px; }
+
 .sidebar {
   padding-top: 30px;
-  background-color: #F2F2F2; }
+  background-color: #F2F2F2;
+  margin-top: -3px; }
+  @media only screen and (max-width: 40em) {
+    .sidebar {
+      margin-top: 0; } }
 
 .sidebar ul {
-  list-style-type: none; }
+  list-style-type: none;
+  margin-left: 0; }
 
 .work-link {
   color: black;
@@ -5342,6 +5405,28 @@ figure.alignnone {
     background-color: #E6F3E7; }
   .sidebar-nav li a:hover {
     background-color: #b9debc; }
+
+.list__sidebar_artworks li a {
+  width: 100%;
+  color: black;
+  line-height: 2.5em; }
+
+.list__sidebar__artworks__children li {
+  margin-left: 1.25rem; }
+  .list__sidebar__artworks__children li a {
+    color: grey; }
+  .list__sidebar__artworks__children li a:hover {
+    color: #47934c; }
+
+.heading__page-title {
+  padding-bottom: 42px; }
+
+.list__news_events {
+  list-style-type: none;
+  margin-left: 0; }
+
+.hentry .entry-content {
+  margin-top: 24px; }
 
 /*==========  Foundation Media Queries - copy/paste from here if needed  ==========*/
 @media only screen { }

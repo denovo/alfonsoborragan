@@ -8,7 +8,6 @@
 *  1. Setup custom post type for homepage slider images
 */
 function homepage_images_register_post_type() {
-    
     // set label names
     $labels = array(
       'name' => 'homepageimages',
@@ -123,7 +122,7 @@ function artworks_register_post_type() {
         'query_var' => true,
         '_builtin' => false,
         'rewrite' => array( 'slug' => 'artworks', 'with_front' => true ),
-        'supports' => array('title', 'editor', 'author', 'thumbnail'),
+        'supports' => array('title', 'editor', 'author', 'thumbnail', 'page-attributes'),
         'menu_icon' => 'dashicons-art'
         );
 

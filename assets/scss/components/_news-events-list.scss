@@ -1,0 +1,21 @@
+.list__news_events {
+	max-width: 50%;
+	padding-bottom: 42px;
+	@media #{$small-only} { max-width: 100%; }
+}
+
+
+.list_item__news {
+
+	a {
+		color: black;
+		line-height: 2.5em;
+	}
+
+	a:hover { color: $text-link-hover-color }
+}
+
+
+
+//  horiz rule styling
+.news_separator { border-color: #E6F3E7;}

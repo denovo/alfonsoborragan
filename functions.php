@@ -24,7 +24,8 @@ $roots_includes = array(
   'lib/scripts.php',         // Scripts and stylesheets
   'lib/extras.php',          // Custom functions
   'lib/customposttypes.php', // Custom Post Type definitions
-  'lib/imagesizes.php'        // Custom image sizes for homepage slides and picture fill
+  'lib/imagesizes.php',        // Custom image sizes for homepage slides and picture fill
+  'lib/royalslider.php'
   
 );
 

@@ -8,6 +8,12 @@ add_image_size('fullscreen', 1920, 9999);
 
 
 
+if(defined('PICTUREFILL_WP_VERSION') && '2' === substr(PICTUREFILL_WP_VERSION, 0, 1)){
+  // Add Picturefill.WP 2 specific code here.
+
+}
+
+
 
 // function picturefill_script() {
 //     wp_enqueue_script( 'picturefill', get_stylesheet_uri() . '/js/picturefill_2.2.0.min.js', '', '', true );

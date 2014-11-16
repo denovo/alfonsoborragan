@@ -40,6 +40,8 @@ Import Roots Components - Do your SASS awesomeness here! Goodspeed young travele
 @import "components/_media";         		// WordPress media
 @import "components/_wp-classes";    		// WordPress generated classes
 @import "components/_homepage-slider";    	// Royal Slider overrides
+@import "components/_news-events-list";    	// news and events list on homepage
+
 
 @import "layouts/_general";          // General styling
 @import "layouts/_header";           // Header styling
@@ -54,7 +56,8 @@ Import Roots Components - Do your SASS awesomeness here! Goodspeed young travele
 
 /*==========  Foundation Media Queries - copy/paste from here if needed  ==========*/
 
-@media #{$small-up} { }
+@media #{$small-up} {
+ }
 @media #{$small-only} { }
 
 @media #{$medium-up} { }

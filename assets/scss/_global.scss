@@ -1,6 +1,6 @@
 // Typography defaults
 
-a {color: darken($primary-color, 50); }
+a:hover { color: darken($primary-color, 50); }
 
 p {font-size: rem-calc(12px); }
 
@@ -9,3 +9,22 @@ ul, ol, dl {
 	line-height: 1.6;
 } 
 
+// headings
+.heading__page-title {
+	padding-bottom: 42px;
+}
+
+
+
+
+
+
+
+// Single posts temporary styling overrides
+p.byline.author {
+	display: none;
+}
+
+.page-category-label {
+	display: none;
+}
