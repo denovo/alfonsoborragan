@@ -7,7 +7,8 @@
 <?php
 
   // heading for news and events
-  echo '<h2 class="heading__page-title">Calendar, News or Gestures</h2><div class="panel__news-events">';
+  echo '<h2 class="heading__page-title"><a class="homepage-link" href=" ' . get_option('home') . '">Calendar, News or Gestures</a></h2>';
+  echo '<div class="panel__news-events">';
 
   //  Left Col News/Events
 	$args = array(
@@ -45,7 +46,6 @@
             //  add class to put a top border rule between posts if they are in different years
           	if ($p_year != $year_check) {
           		if ($year_check != '') {
-          			// echo '<hr class="news_separator"/>';
                 $new_year = true;
           		}
               else{
@@ -75,36 +75,39 @@
               $news_title = get_field('short_news_title');
 
               if (empty($news_title)) {
-                $news_title = the_title();
+                $news_title = get_the_title();
               }
+
+              $news_title = $p_date . ": " . $news_title;
 
               switch ( $chosen_post_type) {
                 case 'Title Only':
                   ?>
-                      <span><?php echo $p_date . ': '; echo $news_title ?></span>
+                      <span><?php echo $news_title; ?></span>
                   <?php
                   break;
 
                 case 'Link Only':
                   $the_content_link = get_field('content_link');
                   ?>
-                      <a href="<?php echo $the_content_link['url'] ?>"><?php echo $p_date . ': '; echo $news_title ?></a>
+                      <a href="<?php echo $the_content_link['url'] ?>" target="<?php echo $the_content_link['target'] ?>"><?php echo $news_title; ?></a>
                   <?php
                   break;
 
                 case 'Regular Post':
                   ?>
-                      <a href="<?php the_permalink(); ?>#post-content"> <?php echo $p_date . ': '; echo $news_title ?> </a>
+                      <a href="<?php the_permalink(); ?>#post-content"><?php echo $news_title; ?>  </a>
                   <?php
                 break;
 
                 default:
                 ?>
-                  <a href="<?php the_permalink(); ?>#post-content"> <?php echo $p_date . ': '; echo $news_title ?> </a>
+                  <a href="<?php the_permalink(); ?>#post-content"> <?php echo $news_title; ?> </a>
                 <?php
                 break;
               }
-
+              // display edit post link if user is logged in
+              edit_post_link('Edit', '<p>', '</p>');
             ?>
         </li>
 
