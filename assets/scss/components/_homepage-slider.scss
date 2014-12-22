@@ -24,3 +24,23 @@
 .reveal-main-content {
 
 }
+
+.rsPete .rsGCaption {
+	position: absolute;
+	float: none;
+	bottom: 6px;
+	left: 6px;
+	text-align: left;
+	background: black;
+	background: rgba(0, 0, 0, 0);
+	color: #FFF;
+	padding: 12px;
+	width: 37%;
+	font-size: 12px;
+	line-height: 1.3em;
+	border-radius: 0;
+}
+
+.rsPete .rsGCaption.__black {
+	color: black !important;
+}
