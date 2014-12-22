@@ -25,7 +25,7 @@ function homepage_images_register_post_type() {
       'menu_name' => 'Homepage Images'
     );
 
-    // arguments for registering the news post type
+    // arguments for registering the homepageimages post type
     $args = array(
         'labels' => $labels,
         'public' => true,
@@ -36,8 +36,9 @@ function homepage_images_register_post_type() {
         '_builtin' => false,
         'rewrite' => array( 'slug' => 'homepageimages', 'with_front' => true ),
         'supports' => array('title', 'editor', 'author','thumbnail'),
-        'menu_icon' => 'dashicons-format-gallery'
-
+        'menu_icon' => 'dashicons-format-gallery',
+        'show_in_menu' => true,
+        'menu_position' => 2
         );
 
     register_post_type( 'homepageimages' , $args );
@@ -79,7 +80,9 @@ function news_register_post_type() {
         '_builtin' => false,
         'rewrite' => array( 'slug' => 'news', 'with_front' => true ),
         'supports' => array('title', 'editor', 'author', 'thumbnail'),
-        'menu_icon' => 'dashicons-format-chat'
+        'menu_icon' => 'dashicons-format-chat',
+        'show_in_menu' => true,
+        'menu_position' => 3
 
         );
 
@@ -123,10 +126,14 @@ function artworks_register_post_type() {
         '_builtin' => false,
         'rewrite' => array( 'slug' => 'artworks', 'with_front' => true ),
         'supports' => array('title', 'editor', 'author', 'thumbnail', 'page-attributes'),
-        'menu_icon' => 'dashicons-art'
+        'menu_icon' => 'dashicons-art',
+        'show_in_menu' => true,
+        'menu_position' => 4
         );
 
     register_post_type( 'artworks' , $args );
     flush_rewrite_rules( false );
 }
 add_action('init', 'artworks_register_post_type');
+
+?>

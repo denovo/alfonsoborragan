@@ -34,7 +34,7 @@ function roots_main_class() {
  * .sidebar classes
  */
 function roots_sidebar_class() {
-  return apply_filters('roots/sidebar_class', 'small-12 medium-3');
+  return apply_filters('roots/sidebar_class', 'sidebar__main small-12 medium-3');
 }
 
 /**

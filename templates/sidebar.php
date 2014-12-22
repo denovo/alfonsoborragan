@@ -9,11 +9,6 @@ endif; ?>
 
 <!-- website pages tree view style output for posts in the portfolio items section -->
 
-
-
-
-
-
 <?php
 	// select only top level parent posts (parent = 0)
 	$args = array(
@@ -37,10 +32,14 @@ endif; ?>
 			<!-- output the parent artwork title and link-->
 	        <li class="list__sidebar__artworks__parent-item " id="post-<?php the_ID(); ?>">
 
-	          	<a href="<?php the_permalink(); ?>">
+	        	<?php if (get_field('title_page_only')) {
+	        		the_title();
+	        	}
+	        	else { ?>
+	          	<a href="<?php the_permalink(); ?>#post-content">
 	          		<?php the_title(); ?>
 	          	</a>
-
+	          	<?php } ?>
 		        <!-- get any subposts of this artwork post-->
 
 				<?php
@@ -49,7 +48,7 @@ endif; ?>
 						'posts_per_page' => -1,
 						'post_parent' => $post->ID,
 						'order'=> 'ASC',
-						'orderby' => 'title'
+						'orderby' => 'menu_order'
 					);
 
 					$subposts = get_posts( $child_args );
@@ -60,7 +59,7 @@ endif; ?>
 						foreach ( $subposts as $post ) :
 					  	setup_postdata( $post ); ?>
 					  			<li>
-								<a href="<?php the_permalink(); ?>">
+								<a href="<?php the_permalink(); ?>#post-content">
 									<?php the_title(); ?>
 								</a>
 								</li>
@@ -88,12 +87,6 @@ endif; ?>
     wp_reset_postdata();
 
 ?>
-
-
-
-
-
-
 
 
 <!-- Side bar widget area -->

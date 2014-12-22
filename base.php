@@ -1,7 +1,30 @@
 <?php get_template_part('templates/head'); ?>
 
 
-<body <?php body_class(); ?>>
+<!-- if viewing a single artworks post,
+      check what type of artwork it is,
+      and add black background class for
+      videos or gallery types     -->
+<?php
+  if ( is_singular( 'artworks' ) ) {
+    // get artworks type (custom field)
+    $aw_type = get_field( "artwork_type" );
+
+    switch ($aw_type) {
+      case 'video_artwork':
+      case 'image_gallery_artwork':
+      case 'text_only_artwork':
+        $bg_class = "bg-black";
+        break;
+      default:
+        $bg_class = "";
+        break;
+    }
+  }
+?>
+
+
+<body <?php if (isset($bg_class)) {body_class($bg_class);} else { body_class(); }; ?>>
 
 
 
@@ -19,18 +42,16 @@
   get_template_part('templates/header');
 ?>
 
+  <div class="content row <?php echo isset($bg_class) ? $bg_class: '';?>" id="post-content" role="document">
 
-
-
-  <div class="content row" role="document">
     <main class="main <?php echo roots_main_class(); ?> columns" role="main">
       <?php include roots_template_path(); ?>
     </main><!-- /.main -->
-    <?php if (roots_display_sidebar()) : ?> 
+    <?php if (roots_display_sidebar()) : ?>
       <aside class="sidebar <?php echo roots_sidebar_class(); ?> columns" role="complementary">
         <?php include roots_sidebar_path(); ?>
       </aside><!-- /.sidebar -->
-    <?php endif; ?> 
+    <?php endif; ?>
   </div><!-- /.content -->
 
 

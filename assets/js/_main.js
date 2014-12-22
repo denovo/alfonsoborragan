@@ -7,7 +7,7 @@
  * replace the dash with an underscore when adding it to the object below.
  *
  * .noConflict()
- * The routing is enclosed within an anonymous function so that you can 
+ * The routing is enclosed within an anonymous function so that you can
  * always reference jQuery with $, even when in .noConflict() mode.
  *
  * Google CDN, Latest jQuery
@@ -15,22 +15,89 @@
  * remove or comment out: add_theme_support('jquery-cdn');
  * ======================================================================== */
 
-(function($) {
+(function ($) {
 
-// Use this variable to set up the common and page specific functions. If you 
+// Use this variable to set up the common and page specific functions. If you
 // rename this variable, you will also need to rename the namespace below.
 var Roots = {
   // All pages
   common: {
-    init: function() {
+    init: function () {
       // JavaScript to be fired on all pages
       $(document).foundation(); // Initialize foundation JS for all pages
+
+
+      $(window).load(function() {
+
+        if (!$('body').hasClass('mobile')) {
+          var content_height = ($('.content').height());
+          $('.sidebar').css("height", (content_height + 100));
+        }
+      });
+
+
+
+      // set slider auto height to full screen height on window resize (uses debounce to minimise CPU usage)
+      var resizeSlider = function () {
+          $('.royalSlider.new-royalslider-1.rsPete').css({
+              width: $(window).width(),
+              height: $(window).height()
+          });
+      };
+
+
+
+      // debounce that mo-fo to save CPU
+      $(window).resize(function() {
+        clearTimeout($.data(this, "resizeTimer"));
+        $.data(this, "resizeTimer", setTimeout(function() {
+           resizeSlider();
+
+        }, 200));
+      });
+
     }
   },
   // Home page
   home: {
     init: function() {
       // JavaScript to be fired on the home page
+
+      // split the news/events list into two columns on desktop on desktop and tablet
+
+      if (!$('body').hasClass('mobile')) {
+        var num_cols = 2,
+        container = $('.list__news_events'),
+        listItem = 'li',
+        listClass = 'sub-list';
+        container.each(function() {
+            var items_per_col = new Array(),
+            items = $(this).find(listItem),
+            min_items_per_col = Math.floor(items.length / num_cols),
+            difference = items.length - (min_items_per_col * num_cols);
+            for (var i = 0; i < num_cols; i++) {
+                if (i < difference) {
+                    items_per_col[i] = min_items_per_col + 1;
+                } else {
+                    items_per_col[i] = min_items_per_col;
+                }
+            }
+            for (var i = 0; i < num_cols; i++) {
+                $(this).append($('<ul ></ul>').addClass(listClass).addClass('medium-6 columns no-pad-l'));
+                for (var j = 0; j < items_per_col[i]; j++) {
+                    var pointer = 0;
+                    for (var k = 0; k < i; k++) {
+                        pointer += items_per_col[k];
+                    }
+                    $(this).find('.' + listClass).last().append(items[j + pointer]);
+                }
+            }
+        });
+
+
+      } // end  if (!$('body').hasClass('mobile'))
+
+
     }
   },
   // About us page, note the change from about-us to about_us.

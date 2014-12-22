@@ -25,13 +25,13 @@ $roots_includes = array(
   'lib/extras.php',          // Custom functions
   'lib/customposttypes.php', // Custom Post Type definitions
   'lib/imagesizes.php',        // Custom image sizes for homepage slides and picture fill
-  'lib/royalslider.php'
-  
+  'lib/royalslider.php',    // royal slider scripts
+  'lib/adminfilters.php'    // extend the admin so that you can sort by event/news date in dashboard
+
 );
 
 // register RoyalSlider
 register_new_royalslider_files(1);
-
 
 
 foreach ($roots_includes as $file) {
