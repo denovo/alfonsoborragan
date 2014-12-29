@@ -1,0 +1,14 @@
+// styling for regular artworks (single post view)
+.regular-artwork {
+
+
+	article.artworks {
+		@extend .medium-12;
+		@extend .medium-offset-2;
+		@extend .no-pad-l;
+		@extend .no-pad-r;
+		@extend .columns;
+	}
+
+}
+

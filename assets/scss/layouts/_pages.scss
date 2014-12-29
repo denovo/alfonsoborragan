@@ -1,3 +1,24 @@
 .heading__page-title {
 	padding-bottom: 42px;
+
+	.homepage-link {
+		color: $lighter-gray-text;
+		font-size: rem-calc(16);
+		&:hover { color: $text-link-hover-color; }
+
+		@media #{$small-only} { display: none;}
+
+		&.active {
+			color: black;
+			border-bottom: solid 1px black;
+		}
+
+		.bg-black & {
+			color: gray;
+
+			&:hover {
+				color: $lighter-gray-text;
+			}
+		}
+	}
 }

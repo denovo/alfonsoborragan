@@ -1,13 +1,31 @@
 // Typography defaults
 
+html, body {
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+	-moz-osx-font-smoothing: grayscale !important;
+}
+
+.bg-black {
+	background-color: black;
+}
+
 a:hover { color: darken($primary-color, 50); }
 
-p {font-size: rem-calc(12px); }
+p {font-size: rem-calc(13px); }
 
 ul, ol, dl {
 	font-size: rem-calc(12px);
-	line-height: 1.6;
-} 
+	line-height: 1.5;
+}
+
+//  horiz rule
+hr { border-color: #b9debc}
+
+.hr__large-margin {
+	margin-top: 42px;
+	margin-bottom: 42px;
+}
 
 // headings
 .heading__page-title {

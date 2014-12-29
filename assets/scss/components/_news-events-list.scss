@@ -1,21 +1,43 @@
+.panel__news-events {
+	padding-top: 12px;
+	@media #{$small-only} { padding-top: 0; }
+}
+
 .list__news_events {
-	max-width: 50%;
 	padding-bottom: 42px;
 	@media #{$small-only} { max-width: 100%; }
 }
 
 
 .list_item__news {
-
+	padding-top: 6px;
+	padding-bottom: 6px;
 	a {
 		color: black;
-		line-height: 2.5em;
 	}
-
 	a:hover { color: $text-link-hover-color }
+
+	&.new_year {
+		border-top: 1px solid #b9debc;
+		padding-top: 24px;
+		margin-top: 18px;
+	}
+}
+
+// don't show underline for year separator if it's the first item in the list
+.list_item__news.new_year:first-child{
+	border-top: 0;
+	padding-top: 6px;
+	margin-top: 0;
+}
+
+.list__news_events .sub-list{
+	list-style-type: none;
+	margin-left: 0;
+	float: left;
 }
 
 
 
 //  horiz rule styling
-.news_separator { border-color: #E6F3E7;}
+.news_separator { border-color: #E6F3E7; }

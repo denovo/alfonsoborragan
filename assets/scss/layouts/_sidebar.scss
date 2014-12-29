@@ -11,10 +11,13 @@
 
 
  .work-link {
- 	color: black;
-	border-bottom: 1px solid black;
-	line-height: 1.3em;
+ 	color: $lighter-gray-text;
+	// line-height: 1.3em;
 	padding-top: 6px;
+	&.active {
+		color: black;
+		border-bottom: 1px solid black;
+	}
 
  }
 
@@ -47,12 +50,16 @@
 }
 
 .list__sidebar__artworks__parent-item {
-
+	padding-top: 6px;
+	padding-bottom: 6px;
 }
 
 
 .list__sidebar__artworks__children li {
-	margin-left: 1.25rem ;
+	margin-left: 2.25rem ;
 	a { color: $lighter-gray-text; }
 	a:hover { color: $text-link-hover-color }
+	&:first-child {
+		padding-top: 6px;
+	}
 }

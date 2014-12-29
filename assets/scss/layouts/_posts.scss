@@ -3,3 +3,12 @@
 .hentry .byline { }
 .hentry .entry-content { margin-top: 24px; }
 .hentry footer { }
+
+// artworks article alignment -	2cols indent
+article.post {
+	@extend .medium-12;
+	@extend .medium-offset-2;
+	@extend .no-pad-l;
+	@extend .no-pad-r;
+	@extend .columns;
+}
