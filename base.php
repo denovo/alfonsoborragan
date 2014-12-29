@@ -14,17 +14,17 @@
       case 'video_artwork':
       case 'image_gallery_artwork':
       case 'text_only_artwork':
-        $bg_class = "bg-black";
+        $body_class = "bg-black";
         break;
       default:
-        $bg_class = "";
+        $body_class = "regular-artwork";
         break;
     }
   }
 ?>
 
 
-<body <?php if (isset($bg_class)) {body_class($bg_class);} else { body_class(); }; ?>>
+<body <?php if (isset($body_class)) {body_class($body_class);} else { body_class(); }; ?>>
 
 
 
