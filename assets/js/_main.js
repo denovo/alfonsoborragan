@@ -23,8 +23,35 @@ var Roots = {
   // All pages
   common: {
     init: function () {
+
+
+
+
+
+
+
       // JavaScript to be fired on all pages
       $(document).foundation(); // Initialize foundation JS for all pages
+
+
+      // handle mailto links - show confirm before launching mail client
+      $(".menu-contact").find("a").confirmMailto();
+
+
+      var snappr_options = {
+        panelSelector: '.royalSlider',
+        directionThreshold: 50,
+        slideSpeed: 200,
+        easing: 'linear',
+        keyboardNavigation: {
+          enabled: true,
+          nextPanelKey: 40,
+          previousPanelKey: 38,
+          wrapAround: true
+        }
+      };
+
+
 
 
       $(window).load(function() {
@@ -33,16 +60,32 @@ var Roots = {
           var content_height = ($('.content').height());
           $('.sidebar').css("height", (content_height + 100));
         }
+
+        // $('body').panelSnap();
+
+        // set slider heights
+        resizeSlider();
+
       });
+
 
 
 
       // set slider auto height to full screen height on window resize (uses debounce to minimise CPU usage)
       var resizeSlider = function () {
+          // homepage slider resize function
           $('.royalSlider.new-royalslider-1.rsPete').css({
-              width: $(window).width(),
-              height: $(window).height()
+              width: $(window).innerWidth(),
+              height: $(window).innerHeight()
           });
+
+          // image gallery only posts slider resize js
+          $('article .royalSlider').css({
+              // width: $(window).innerWidth(),
+              height: $(window).innerHeight()
+          });
+
+          console.log("resized the slider");
       };
 
 
@@ -71,7 +114,7 @@ var Roots = {
         listItem = 'li',
         listClass = 'sub-list';
         container.each(function() {
-            var items_per_col = new Array(),
+            var items_per_col = [],
             items = $(this).find(listItem),
             min_items_per_col = Math.floor(items.length / num_cols),
             difference = items.length - (min_items_per_col * num_cols);
@@ -82,8 +125,8 @@ var Roots = {
                     items_per_col[i] = min_items_per_col;
                 }
             }
-            for (var i = 0; i < num_cols; i++) {
-                $(this).append($('<ul ></ul>').addClass(listClass).addClass('medium-6 columns no-pad-l'));
+            for (i = 0; i < num_cols; i++) {
+                $(this).append($('<ul ></ul>').addClass(listClass).addClass('medium-8 columns no-pad-l'));
                 for (var j = 0; j < items_per_col[i]; j++) {
                     var pointer = 0;
                     for (var k = 0; k < i; k++) {
