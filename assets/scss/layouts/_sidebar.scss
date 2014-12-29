@@ -13,7 +13,7 @@
  .work-link {
  	color: $lighter-gray-text;
 	// line-height: 1.3em;
-	padding-top: 6px;
+	padding-top: 14px;
 	&.active {
 		color: black;
 		border-bottom: 1px solid black;
@@ -22,19 +22,23 @@
  }
 
 
-.sidebar-nav li, {
-	display: inline-block;
-	text-align: center;
-	min-width: 60px;
-	a {
+.sidebar-nav {
+	padding-top: 6px; // align with work link anc calendar, news gestures link
+
+	li {
 		display: inline-block;
-		width: 100%;
-		padding: 8px;
-		color: black;
-		background-color: #E6F3E7;
-	}
-	a:hover {
-		background-color: scale-color($primary-color, $lightness: -14%);
+		text-align: center;
+		min-width: 60px;
+		a {
+			display: inline-block;
+			width: 100%;
+			padding: 8px;
+			color: black;
+			background-color: #E6F3E7;
+		}
+		a:hover {
+			background-color: scale-color($primary-color, $lightness: -14%);
+		}
 	}
 }
 
