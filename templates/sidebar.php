@@ -1,4 +1,4 @@
-<span class="left work-link">Work</span>
+<a class="left work-link">Work</a>
 
 <!-- primary menu items for sidebar  -->
 <?php if (has_nav_menu('sidebar_navigation')) :

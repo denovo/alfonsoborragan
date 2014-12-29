@@ -1,12 +1,8 @@
-<?php echo '<h2 class="heading__page-title"><a class="homepage-link" href=" ' . get_option('home') . '">Calendar, News or Gestures</a></h2>'; ?>
-
 <?php while (have_posts()) : the_post(); ?>
-
   <article <?php post_class(); ?>>
     <header>
-      <div class="page-category-label"> Post category </div>
+      <?php echo '<a class="homepage-link" href=" ' . get_option('home') . '">Calendar, News or Gestures</a>'; ?>
       <h1 class="entry-title"><?php the_title(); ?></h1>
-      <?php get_template_part('templates/entry-meta'); ?>
     </header>
     <div class="entry-content">
       <?php the_content(); ?>

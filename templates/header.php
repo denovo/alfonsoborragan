@@ -1,15 +1,17 @@
+<div class="snap-to-this">
+</div>
 
-<!-- show the featured images slider at the top of every page -->
 <?php
-  // if ( is_page('homepage') ) {  echo get_new_royalslider(1); }
+ // show the featured images slider at the top of every page
   echo get_new_royalslider(1);
 ?>
+
 
 <div class="contain-to-grid sticky-nav header-wrap">
   <header >
     <nav class="top-bar" data-topbar>
       <ul class="title-area">
-        <li class="name"> <h1><a href="<?php echo esc_url(home_url()); ?>"><?php bloginfo('name'); ?></a></h1> </li>
+        <li class="name"> <h1><a href="<?php echo esc_url(home_url()); ?>">Calendar, News or Gestures</a></h1> </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
       </ul>
 
