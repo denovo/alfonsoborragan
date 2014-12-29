@@ -6,7 +6,7 @@
 add_theme_support('soil-clean-up');         // Enable clean up from Soil
 add_theme_support('soil-relative-urls');    // Enable relative URLs from Soil
 add_theme_support('soil-nice-search');      // Enable /?s= to /search/ redirect from Soil
-add_theme_support('bootstrap-gallery');     // Enable Bootstrap's thumbnails component on [gallery]
+// add_theme_support('bootstrap-gallery');     // Enable Bootstrap's thumbnails component on [gallery]
 add_theme_support('jquery-cdn');            // Enable to load jQuery from the Google CDN
 
 /**
@@ -19,12 +19,12 @@ define('GOOGLE_ANALYTICS_ID', ''); // UA-XXXXX-Y (Note: Universal Analytics only
  * .main classes
  */
 function roots_main_class() {
-  if (roots_display_sidebar()) {
+  if (roots_display_sidebar() ) {
     // Classes on pages with the sidebar
-    $class = 'small-12 medium-9';
+    $class = 'small-16 medium-12';
   } else {
     // Classes on full width pages
-    $class = 'small-12 medium-9';
+    $class = 'small-16 medium-12';
   }
 
   return apply_filters('roots/main_class', $class);
@@ -34,7 +34,7 @@ function roots_main_class() {
  * .sidebar classes
  */
 function roots_sidebar_class() {
-  return apply_filters('roots/sidebar_class', 'sidebar__main small-12 medium-3');
+  return apply_filters('roots/sidebar_class', 'sidebar__main small-16 medium-4');
 }
 
 /**

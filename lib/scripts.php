@@ -18,9 +18,9 @@ function roots_scripts() {
   wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/modernizr.min.js', array(), false, false);
   wp_enqueue_script('modernizr');
 
-
   wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', array(), '0fc6af96786d8f267c8686338a34cd38', true);
   wp_enqueue_script('roots_scripts');
+
 }
 add_action('wp_enqueue_scripts', 'roots_scripts');
 
