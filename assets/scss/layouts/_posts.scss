@@ -12,3 +12,61 @@ article.post {
 	@extend .no-pad-r;
 	@extend .columns;
 }
+
+
+.single article {
+	display: block;
+	position: relative;
+	min-height: 300px;
+}
+
+
+
+// related posts
+
+article .relatedposts {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin-left: -25%;
+
+	@media #{$small-only} {
+		position: static;
+		width: 100%;
+		clear:both;
+		margin-left: 0;
+	}
+
+	h3 {
+		font-size: 13px;
+		line-height: 1.5;
+		text-decoration: underline;
+	}
+
+	ul {
+		margin-left: 0;
+		padding-left: 0;
+		margin-bottom: 8px;
+		list-style-type: none;
+	}
+
+	li {
+		margin-left: 0;
+		padding-left: 0;
+		padding-bottom: 2px;
+	}
+
+	li a { color: black }
+	li a:hover { text-decoration: underline; }
+}
+
+
+// other artworks in section
+
+.other-artworks {
+	list-style-type: georgian;
+	li a { color: black; }
+	li a:hover { text-decoration: underline;}
+	li.current-post a { color: gray; text-decoration: underline}
+}
