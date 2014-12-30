@@ -1,4 +1,16 @@
-<a class="left work-link">Work</a>
+<?php
+	global $post;     // if outside the loop
+	$page_object = get_queried_object();
+	$post_id  = get_queried_object_id(); // Get current page id
+
+
+	$curnt_post = $post_id;
+	$is_artwork = false;
+	$is_curnt_post = false;
+	if ($post->post_type == "artworks") { $is_artwork = true; }
+?>
+
+<a class="left work-link <?php if ($is_artwork) {echo "active";}?>">Work</a>
 
 <!-- primary menu items for sidebar  -->
 <?php if (has_nav_menu('sidebar_navigation')) :
@@ -10,6 +22,7 @@ endif; ?>
 <!-- website pages tree view style output for posts in the portfolio items section -->
 
 <?php
+
 	// select only top level parent posts (parent = 0)
 	$args = array(
 	    'post_type' => 'artworks',
@@ -28,9 +41,8 @@ endif; ?>
     	// start the loop of top level parent artworks
         while ( $parent_artworks->have_posts() ) : $parent_artworks->the_post(); ?>
 
-
 			<!-- output the parent artwork title and link-->
-	        <li class="list__sidebar__artworks__parent-item " id="post-<?php the_ID(); ?>">
+	        <li class="list__sidebar__artworks__parent-item <?php if ($post->ID == $curnt_post) { echo "active";} ?>" id="post-<?php the_ID(); ?>">
 
 	        	<?php if (get_field('title_page_only')) {
 	        		the_title();

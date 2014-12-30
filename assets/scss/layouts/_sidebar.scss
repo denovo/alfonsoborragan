@@ -51,6 +51,10 @@
 		color: black;
 		line-height: 2.5em;
 	}
+
+	&.active > a {border-bottom: solid 1px black;}
+
+	a:hover { border-bottom: solid 1px black;}
 }
 
 .list__sidebar__artworks__parent-item {
@@ -62,7 +66,10 @@
 .list__sidebar__artworks__children li {
 	margin-left: 2.25rem ;
 	a { color: $lighter-gray-text; }
-	a:hover { color: $text-link-hover-color }
+	a:hover {
+		color: $text-link-hover-color;
+		border-bottom: 0;
+	}
 	&:first-child {
 		padding-top: 6px;
 	}
