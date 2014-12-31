@@ -113,7 +113,7 @@ function artworks_register_post_type() {
       'not_found' =>  'No Portfolio Artworks found',
       'not_found_in_trash' => 'No Portfolio Artworks found in Trash',
       'parent_item_colon' => '',
-      'menu_name' => 'Portfolio Artworks'
+      'menu_name' => 'Artworks'
     );
     // arguments for registering the announcements post type
     $args = array(
@@ -126,6 +126,7 @@ function artworks_register_post_type() {
         '_builtin' => false,
         'rewrite' => array( 'slug' => 'artworks', 'with_front' => true ),
         'supports' => array('title', 'editor', 'author', 'thumbnail', 'page-attributes'),
+        'taxonomies' => array('artworks_tag'),
         'menu_icon' => 'dashicons-art',
         'show_in_menu' => true,
         'menu_position' => 4
@@ -133,7 +134,37 @@ function artworks_register_post_type() {
 
     register_post_type( 'artworks' , $args );
     flush_rewrite_rules( false );
+
+
 }
 add_action('init', 'artworks_register_post_type');
+
+
+
+/*
+*  3. register tags for artworks (related posts)
+*/
+
+function artwork_types_init() {
+  // create a new taxonomy
+  register_taxonomy(
+    'artwork_tags',
+    'artworks',
+    array(
+      'label' => __( 'Artwork tags (for related artworks)' ),
+      'rewrite' => array( 'slug' => 'artwork_tags' ),
+      'hierarchical'      => true,
+      'show_ui'           => true,
+      'show_admin_column' => true,
+      'query_var'         => true
+    )
+  );
+}
+
+add_action( 'init', 'artwork_types_init' );
+
+
+
+
 
 ?>
