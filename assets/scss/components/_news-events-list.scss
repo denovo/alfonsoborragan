@@ -29,15 +29,35 @@
 	border-top: 0;
 	padding-top: 6px;
 	margin-top: 0;
+
+	.page-template-template-newsevents & {
+		padding-top: 46px;
+		margin-top: 18px;
+	}
 }
 
-.list__news_events .sub-list{
+
+
+.list__news_events .sub-list {
 	list-style-type: none;
 	margin-left: 0;
 	float: left;
 }
 
 
+.news__view-all-link {
+	text-align: right;
+	clear:both;
+	display: block;
+	a {
+		color: black;
+		font-size: 13px;
+		text-decoration: underline;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
 
 //  horiz rule styling
 .news_separator { border-color: #E6F3E7; }

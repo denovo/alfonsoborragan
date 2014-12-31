@@ -39,14 +39,33 @@
 	font-size: 12px;
 	line-height: 1.3em;
 	border-radius: 0;
+	a:hover{ text-decoration: underline; }
 }
 
 .rsPete .rsGCaption.__black {
 	color: black !important;
+	a { color: black !important;}
 }
 
 
 article .royalSlider {
    width: 100%;
    height: auto;
+}
+
+.link__to-main-content {
+	display: block;
+	position: absolute;
+	width: 50px;
+	bottom: 24px;
+	left: 50%;
+	text-align: center;
+	margin-left: -25px;
+	z-index: 88888;
+	a:hover{ border-bottom: solid 1px white;}
+	&.__black a {
+		color: black !important;
+		&:hover { border-bottom: solid 1px black; }
+	}
+
 }
