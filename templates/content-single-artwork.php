@@ -3,9 +3,8 @@
 <?php
   // get artwork type from custom field and handle output accordingly
   $artwork_type = get_field('artwork_type');
-  // if ($artwork_type == "image_gallery_artwork") {
-  //   echo "<h1>Image gallery post </h1>";
-  // }
+  // current post pun-tastic variable
+  $cunt_post = get_the_ID();
 ?>
 
 
@@ -46,42 +45,89 @@
       <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
     </footer>
 
-    <div class="relatedposts medium-2">
-      <h3>Related posts</h3>
+    <div class="relatedposts medium-3 small-12">
+      <h3>Related</h3>
       <?php
-          $orig_post = $post;
-          global $post;
-          $tags = wp_get_post_tags($post->ID);
+        /* $artwork_tags is a variable you can change to something more suitable throughout */
+        /* project_id is the name of the custom taxonomy */
+        $artwork_tags = get_the_terms( $post->ID, "artwork_tags" );
 
-          if ($tags) {
-              $tag_ids = array();
-          foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
-              $args=array(
-                  'tag__in' => $tag_ids,
-                  'post__not_in' => array($post->ID),
-                  'posts_per_page'=>4, // Number of related posts to display.
-                  'caller_get_posts'=>1
-              );
+        if ( ! is_wp_error( $artwork_tags ) && is_array( $artwork_tags ) ) {
+        $term = array_shift( $artwork_tags );
+        /* $artwork_tag is a variable you can change to something more suitable throughout */
+        $artwork_tag = null;
+        if ( isset( $term->slug ) && isset( $term->taxonomy ) ) {
+        $artwork_tag = get_posts( array(
+            'term' => $term->slug,
+            'taxonomy' => $term->taxonomy,
+            'post_type' => 'artworks',
+            'orderby' => 'menu_order',
+            'order' => 'asc',
+            'numberposts' => '0', // 0 will show all results
+            'post_status' => 'publish',
+        ) );
+        }
 
-          $my_query = new wp_query( $args );
+        // Loop over all posts of the CPT and display them
+        if ( $artwork_tag ) {
+            $_post = $post;
+            print '<ul>';
+                foreach ( (array) $artwork_tag as $post ) {
+                  if ($post->ID != $cunt_post){
+                    setup_postdata( $post );
+                    the_title( '<li><a href="' . esc_url( get_permalink() ) . '">', '</a></li>' );
+                  }
+                }
+            print '<ul>';
+            $post = $_post;
+        }
+        }
+        ?>
 
-          while( $my_query->have_posts() ) {
-              $my_query->the_post();
-          ?>
 
-          <div class="relatedthumb">
-              <a rel="external" href="<? the_permalink()?>">
-              <?php the_title(); ?>
-              </a>
-          </div>
-
-          <?php }
-          }
-          $post = $orig_post;
-          wp_reset_query();
-          ?>
     </div> <!-- // end related posts ?> -->
+
   </article>
+
+  <nav class="other-awks-in-section medium-4 medium-offset-11 small-16 ">
+        <!-- <h3> other artworks in this section </h3> -->
+        <?php
+
+
+
+          $args = array(
+            'post_type' => 'artworks',
+            'posts_per_page' => '-1',
+            'post_parent' => $parent,
+            'orderby' => 'menu_order',
+            'order' => 'ASC'
+          );
+
+          $these_artworks = new WP_Query( $args );
+
+
+          if ( $these_artworks->have_posts() ) {
+
+          ?>
+
+          <ul class="other-artworks">
+          <?php
+            // start to loop through all artworks in this section
+
+          while ( $these_artworks->have_posts() ) : $these_artworks->the_post();
+
+          if( ($post->post_parent == $parent) && (get_post_status ( $post ) == 'publish' )) {
+
+        ?>
+        <!-- output the parent artwork title and link-->
+        <li <?php if ($post->ID == $cunt_post) { echo 'class="current-post"'; }?> >
+          <a href="<?php the_permalink(); ?>#post-content"><?php echo the_title() ;?></a>
+        </li>
+        <?php }
+        endwhile; ?>
+        </ul> <!-- end ul.other-artworks -->
+        <?php } ?>
+  </nav>
 
 
 <?php endwhile; ?>

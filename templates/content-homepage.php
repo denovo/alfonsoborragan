@@ -1,5 +1,13 @@
 <?php the_content(); ?>
 
+<?php  // get theme options
+  $theme_options = get_option( 'pu_theme_options' );
+  $num_of_events = $theme_options['num_of_events'];
+  // if integer value not set show 30 events by default
+  if (!is_numeric( $num_of_events )) {
+     $num_of_events = 30;
+  }
+?>
 
 <div class="snap-to-this">
 
@@ -8,15 +16,16 @@
 
     // heading for news and events
     echo '<h2 class="heading__page-title"><a class="homepage-link active" href=" ' . get_option('home') . '">Calendar, News or Gestures</a></h2>';
+
     echo '<div class="panel__news-events">';
 
-    //  Left Col News/Events
+    // get News/Events
   	$args = array(
   	    'post_type' => 'news',
         'meta_key' => 'news_date', // name of custom field
   		  'orderby' => 'meta_value_num',
   		  'order' => 'DESC',
-  	    'posts_per_page' => '-1'
+  	    'posts_per_page' => $num_of_events
   	);
   	$query = new WP_Query( $args );
 
@@ -26,7 +35,7 @@
 
       // newsevents list
       // echo '<ul class="list__news_events medium-6 columns no-pad-l">';
-      echo '<ul class="list__news_events">';
+      echo '<ul class="list__news_events medium-offset-1">';
       $year_check = ''; // set blank year check at beginning - this will be filled with current year after each news post iteration
 
           // loop through left news posts
@@ -48,7 +57,7 @@
             		if ($year_check != '') {
                   $new_year = true;
             		}
-                else{
+                else {
                   $new_year = false;
                 }
                 // update current year
@@ -121,11 +130,18 @@
 
     ?>
 
+
+    <div class="news__view-all-link medium-15">
+      <a href="<?php echo get_page_link(214); ?>#post-content">old entries</a>
+    </div>
+
    </div> <!-- end .panel__news-events -->
+
+
 
   <hr class="hr__large-margin"/>
 
-  <div class="panel__bio medium-12 medium-offset-2 columns no-pad-l">
+  <div class="panel__bio medium-12 medium-offset-3 columns no-pad-l">
 
     <?php $bioPageID = 176; ?>
 
