@@ -1,16 +1,49 @@
 <?php
-	global $post;     // if outside the loop
-	$page_object = get_queried_object();
-	$post_id  = get_queried_object_id(); // Get current page id
-
-
+	global $post;
+	$post_id  = get_queried_object_id(); // Get current post id
 	$curnt_post = $post_id;
 	$is_artwork = false;
 	$is_curnt_post = false;
+	$found_link = false;
+	$work_link_url = "";
 	if ($post->post_type == "artworks") { $is_artwork = true; }
 ?>
 
-<a class="left work-link <?php if ($is_artwork) {echo "active";}?>">Work</a>
+
+
+<?php
+    $link_loop = new WP_Query( array(
+    'post_parent' => 0,
+    'post_type' => 'artworks',
+    'posts_per_page' => -1,
+    'orderby' => 'menu_order',
+	'post_status' => 'publish',
+
+     // only get the latest post (one post)
+    ) );
+?>
+
+<?php if ( $link_loop->have_posts() ) : ?>
+    <?php while ( $link_loop->have_posts() ) : $link_loop->the_post();
+
+    	  do {
+			    if (get_field('title_page_only')) {
+    	  		// loop around again - don't link to title only artwork posts
+	    	  	}
+	    	  	else {
+	    	  		// if artwork has content - link to it
+	    	  		$work_link_url = get_permalink($post->ID);
+	    	  		$found_link = true;
+	    	  	}
+		  } while ($found_link != true);
+
+		 endwhile;?>
+<?php else: ?>
+<?php endif; ?>
+<?php wp_reset_query(); ?>
+
+
+<a class="left work-link <?php if ($is_artwork) {echo "active";}?>" href="<?php echo $work_link_url; ?>#post-content">Work</a>
 
 <!-- primary menu items for sidebar  -->
 <?php if (has_nav_menu('sidebar_navigation')) :
@@ -32,7 +65,6 @@ endif; ?>
 	   	'order' => 'ASC'
 	);
 	$parent_artworks = new WP_Query( $args );
-
 
 	if ( $parent_artworks->have_posts() )
 	{
@@ -70,7 +102,7 @@ endif; ?>
 
 						foreach ( $subposts as $post ) :
 					  	setup_postdata( $post ); ?>
-					  			<li>
+					  			<li <?php if ($post->ID == $curnt_post) { echo 'class="active"';} ?>>
 								<a href="<?php the_permalink(); ?>#post-content">
 									<?php the_title(); ?>
 								</a>
