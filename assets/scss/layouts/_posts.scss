@@ -1,11 +1,15 @@
 .hentry header { }
 .hentry time { }
 .hentry .byline { }
-.hentry .entry-content { margin-top: 24px; }
+.hentry .entry-content { margin-top: 0 }
 .hentry footer { }
 
-// artworks article alignment -	2cols indent
-article.post {
+.entry-title a {
+	color: black;
+	&:hover { text-decoration: underline;}
+}
+
+%article_cols {
 	@extend .medium-12;
 	@extend .medium-offset-2;
 	@extend .no-pad-l;
@@ -14,7 +18,19 @@ article.post {
 }
 
 
-.single article {
+// search results
+.search-results article {
+	@extend %article_cols ;
+	padding-bottom: 42px;
+	&.news {min-height: 0;}
+}
+
+// artworks article alignment -	2cols indent
+article.post {
+	@extend %article_cols;
+}
+
+.single article, article.news {
 	display: block;
 	position: relative;
 	min-height: 300px;
@@ -66,7 +82,14 @@ article .relatedposts {
 
 .other-artworks {
 	list-style-type: georgian;
-	li a { color: black; }
+	li a {
+		font-size: 16px;
+		color: black; }
 	li a:hover { text-decoration: underline;}
 	li.current-post a { color: gray; text-decoration: underline}
+
+	.bg-black & {
+		li { color: gray }
+		li a { color: gray; }
+	}
 }

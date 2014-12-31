@@ -453,7 +453,6 @@
 	width:20px;
 	height:20px;
 	background-image:url(../preloaders/preloader-white.gif);
-
 	left:50%;
 	top:50%;
 	margin-left:-10px;
@@ -472,7 +471,7 @@
 	position: absolute;
 	float: none;
 	bottom: 6px;
-	left: 6px;
+	left: 18px;
 	text-align: left;
 	background: black;
 	background: rgba(0, 0, 0, 0);
@@ -487,3 +486,16 @@
 .rsPete .rsGCaption.__black {
 	color: black !important;
 }
+
+
+/* overrides */
+
+.rsNav.rsThumbs {
+	max-width: 100% !important;
+}
+
+.rsNavSelected .rsTmb img{ border: 1px solid gray; }
+
+.rsTmb:hover img{ border: 1px solid #222;  }
+
+

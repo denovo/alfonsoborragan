@@ -80,12 +80,9 @@ var Roots = {
           });
 
           // image gallery only posts slider resize js
-          $('article .royalSlider').css({
-              // width: $(window).innerWidth(),
-              height: $(window).innerHeight()
-          });
-
-          console.log("resized the slider");
+          // $('article .royalSlider').css({
+          //     // width: $(window).innerWidth(),
+          //     height: $(window).innerHeight()
       };
 
 
