@@ -1,6 +1,7 @@
 <article <?php post_class(); ?>>
   <header>
  	<div class="page-category-label"> Post category </div>
+
     <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
   </header>
