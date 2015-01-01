@@ -141,7 +141,7 @@
 
   <hr class="hr__large-margin"/>
 
-  <div class="panel__bio medium-12 medium-offset-3 columns no-pad-l">
+  <div class="panel__bio medium-12 medium-offset-1 columns no-pad-l">
 
     <?php $bioPageID = 176; ?>
 
