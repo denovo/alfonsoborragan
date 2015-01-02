@@ -1,0 +1,14 @@
+<div class="rsContent">
+
+
+  {{image_tag}}
+
+  <div class="rsGCaption {{#invert_caption_text}} {{invert_caption_text[0]}} {{/invert_caption_text}}">
+
+
+
+  {{meta.image_description.0}}
+
+- <a href="?p={{meta.image_link.0}}#post-content" class="{{#invert_caption_text}} {{invert_caption_text[0]}} {{/invert_caption_text}}">read more</a></div>
+  <div class="link__to-main-content {{#invert_caption_text}} {{invert_caption_text[0]}} {{/invert_caption_text}}"><a href="#post-content">( + )</a></div>
+</div>
