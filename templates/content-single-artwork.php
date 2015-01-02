@@ -75,7 +75,7 @@
                 foreach ( (array) $artwork_tag as $post ) {
                   if ($post->ID != $cunt_post){
                     setup_postdata( $post );
-                    the_title( '<li><a href="' . esc_url( get_permalink() ) . '">', '</a></li>' );
+                    the_title( '<li><a href="' . esc_url( get_permalink() ) . "#post-content" .'">', '</a></li>' );
                   }
                 }
             print '<ul>';
