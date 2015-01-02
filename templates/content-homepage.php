@@ -132,7 +132,7 @@
 
 
     <div class="news__view-all-link medium-15">
-      <a href="<?php echo get_page_link(214); ?>#post-content">old entries</a>
+      <a href="<?php echo get_page_link(205); ?>#post-content">old entries</a>
     </div>
 
    </div> <!-- end .panel__news-events -->
