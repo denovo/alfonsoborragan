@@ -89,6 +89,14 @@ $column-gutter: rem-calc(60);
 // $xlarge-range: (90.063em, 120em);
 // $xxlarge-range: (120.063em, 99999999em);
 
+$small-range: (0em, 60em); /* 0, 1024px */
+$medium-range: (60.063em, 90em); /* 1024px, 1440px */
+$large-range: (90.063em, 120em); /* 1441px, 1920px */
+$xlarge-range: (120.063); /* 1441px, 1920px */
+// $xxlarge-range: (120.063em); /* 1921px */
+
+
+
 // $screen: "only screen";
 
 // $landscape: "#{$screen} and (orientation: landscape)";

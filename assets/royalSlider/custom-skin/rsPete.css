@@ -398,13 +398,10 @@
 	-moz-transition: .3s;
 	transition: .3s;
 
-	background:url(/rs-pete.png) no-repeat 0 -32px;
-	background-color: #000;
-	background-color: rgba(0,0,0,0.75);
-	*background-color: #000;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAABBCAQAAAAk/gHOAAAA8klEQVR4Ae3WIQ+CABDF8ZdsJhoFEs3EJ7DYTCaCG4lMMZhNbmaDxayVQLG5Wc1UorMY2Gg42G4jadDxyvvfF/jtDhhQSimlvjRCgHDg8dErQIyEMBEcAyS0iTsEaQM2c8BFQh6EIoggwi+EPLtevJRMaJq6OhzJhLayWG6IBOt+81IyoT3J+UQkWI9ytSMT7CRUgp2ETLCTkAl2EiLBdkEl1FWeUQ9RFtM18Vl4Pbd76huRZ9Tvgq2fRLD1kwi2fhrB1k8i2PppBFu/fuJF+PPA5ROAiAqYAYBPBMQYo8snbWIBB71chIPOBA6UUkqpj70BZMQzi2Aw7n8AAAAASUVORK5CYII=');
 }
 .rsPete .rsPlayBtn:hover .rsPlayBtnIcon {
-	background-color: rgba(0,0,0,0.9);
+	/*background-color: rgba(0,0,0,0.9);*/
 }
 .rsPete .rsBtnCenterer {
 	position:absolute;
@@ -487,6 +484,24 @@
 	color: black !important;
 }
 
+.entry-content .rsPete .rsGCaption{
+	position: absolute;
+	float: none;
+	bottom: 4px;
+	line-height: 1em;
+	/* left: 18px; */
+	text-align: left;
+	background: black;
+	background: rgba(0, 0, 0, 0.6);
+	color: lightgray;
+	padding: 12px;
+	width: 100%;
+	font-size: 12px;
+	line-height: 10px;
+	border-radius: 0;
+	text-align: center;
+}
+
 
 /* overrides */
 
@@ -494,8 +509,16 @@
 	max-width: 100% !important;
 }
 
+
 .rsNavSelected .rsTmb img{ border: 1px solid gray; }
 
-.rsTmb:hover img{ border: 1px solid #222;  }
+.rsTmb:hover img{ border: 1px solid #222;   }
 
 
+.rsPete .rsThumb.rsNavSelected { background: none; }
+
+.rsNavSelected .rsTmb:hover img{ border: 1px solid #222;   }
+
+.rsCloseVideoIcn {
+	display: none;
+}

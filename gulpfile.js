@@ -1,9 +1,9 @@
 var gulp = require('gulp');								// Gulp!
-
+var plumber = require('gulp-plumber');
 var sass = require('gulp-sass');						// Sass
 var prefix = require('gulp-autoprefixer');				// Autoprefixr
 var minifycss = require('gulp-minify-css');				// Minify CSS
-var concat = require('gulp-concat');					// Concat files
+var concat = require('gulp-concat');				// Concat files
 var uglify = require('gulp-uglify');					// Uglify javascript
 var svgmin = require('gulp-svgmin');					// SVG minify
 var imagemin = require('gulp-imagemin');				// Image minify
@@ -25,7 +25,8 @@ var jshint = require("gulp-jshint");					// jshint
 		gulp.src([
 			'bower_components/foundation/scss/normalize.scss',         // Gets normalize
 			'assets/scss/app.scss'])                                   // Gets the apps scss
-			.pipe(sass({style: 'compressed'}))  // Compile sass
+			.pipe(plumber())
+			.pipe(sass({style: 'compressed', errLogToConsole: true}))  // Compile sass
 			.pipe(concat('app.css'))                                  // Concat all css
 			// .pipe(rename({suffix: '.min'}))                            // Rename it
 			// .pipe(minifycss())                                         // Minify the CSS

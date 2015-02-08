@@ -15,7 +15,7 @@
   <?php
 
     // heading for news and events
-    echo '<h2 class="heading__page-title"><a class="homepage-link active" href=" ' . get_option('home') . '">Calendar, News or Gestures</a></h2>';
+    echo '<h2 class="heading__page-title"><a class="homepage-link active" href=" ' . get_option('home') . '#post-content">Calendar, News or Gestures</a></h2>';
 
     echo '<div class="panel__news-events">';
 
@@ -35,7 +35,7 @@
 
       // newsevents list
       // echo '<ul class="list__news_events medium-6 columns no-pad-l">';
-      echo '<ul class="list__news_events medium-offset-1">';
+      echo '<ul class="list__news_events">';
       $year_check = ''; // set blank year check at beginning - this will be filled with current year after each news post iteration
 
           // loop through left news posts
@@ -116,7 +116,7 @@
                   break;
                 }
                 // display edit post link if user is logged in
-                edit_post_link('Edit', '<p>', '</p>');
+               // edit_post_link('Edit', '<p>', '</p>');
               ?>
           </li>
 
@@ -141,7 +141,7 @@
 
   <hr class="hr__large-margin"/>
 
-  <div class="panel__bio medium-12 medium-offset-1 columns no-pad-l">
+  <div class="panel__bio medium-12 columns no-pad-l">
 
     <?php $bioPageID = 176; ?>
 

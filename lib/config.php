@@ -21,10 +21,10 @@ define('GOOGLE_ANALYTICS_ID', ''); // UA-XXXXX-Y (Note: Universal Analytics only
 function roots_main_class() {
   if (roots_display_sidebar() ) {
     // Classes on pages with the sidebar
-    $class = 'small-16 medium-13';
+    $class = 'small-16 medium-12';
   } else {
     // Classes on full width pages
-    $class = 'small-16 medium-13';
+    $class = 'small-16 medium-12';
   }
 
   return apply_filters('roots/main_class', $class);
@@ -34,7 +34,7 @@ function roots_main_class() {
  * .sidebar classes
  */
 function roots_sidebar_class() {
-  return apply_filters('roots/sidebar_class', 'sidebar__main small-16 medium-3');
+  return apply_filters('roots/sidebar_class', 'sidebar__main small-16 medium-4');
 }
 
 /**

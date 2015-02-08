@@ -24,15 +24,8 @@ var Roots = {
   common: {
     init: function () {
 
-
-
-
-
-
-
       // JavaScript to be fired on all pages
       $(document).foundation(); // Initialize foundation JS for all pages
-
 
       // handle mailto links - show confirm before launching mail client
       $(".menu-contact").find("a").confirmMailto();
@@ -74,15 +67,14 @@ var Roots = {
       // set slider auto height to full screen height on window resize (uses debounce to minimise CPU usage)
       var resizeSlider = function () {
           // homepage slider resize function
-          $('.royalSlider.new-royalslider-1.rsPete').css({
+          var rslider = $('.royalSlider.new-royalslider-1.rsPete');
+          rslider.css({
               width: $(window).innerWidth(),
               height: $(window).innerHeight()
           });
+          // var datarslider = rslider.data('royalSlider');
+          // datarslider.updateSliderSize();
 
-          // image gallery only posts slider resize js
-          // $('article .royalSlider').css({
-          //     // width: $(window).innerWidth(),
-          //     height: $(window).innerHeight()
       };
 
 
@@ -96,7 +88,24 @@ var Roots = {
         }, 200));
       });
 
+      // $('.js-content-link').on('click', function () {
+
+      //   $('.home .content').fadeIn();
+      //   if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      //       var target = $(this.hash);
+      //       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      //       if (target.length) {
+      //         $('html,body').animate({
+      //           scrollTop: target.offset().top
+      //         }, 1000);
+      //         return false;
+      //       }
+      // }
+
     }
+
+
+
   },
   // Home page
   home: {

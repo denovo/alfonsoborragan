@@ -1,5 +1,5 @@
 .heading__page-title {
-	padding-bottom: 42px;
+	padding-bottom: 14px;
 
 	.homepage-link {
 		color: $lighter-gray-text;
@@ -15,7 +15,7 @@
 		}
 
 		.bg-black & {
-			color: gray;
+			color: #4D4D4D;
 
 			&:hover {
 				color: $lighter-gray-text;
@@ -25,8 +25,9 @@
 }
 
 .page__title {
-	padding-bottom: 24px;
+	padding-bottom: 14px;
 }
 
 
+.mobile-title-link { display: none; }
 

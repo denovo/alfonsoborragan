@@ -1,12 +1,12 @@
-<?php echo '<h2 class="heading__page-title"><a class="homepage-link active" href=" ' . get_option('home') . '">Calendar, News or Gestures</a></h2>'; ?>
+<?php echo '<h2 class="heading__page-title"><a class="homepage-link active" href=" ' . get_option('home') . '#post-content">Calendar, News or Gestures</a></h2>'; ?>
 
 <?php while (have_posts()) : the_post(); ?>
   <article <?php post_class(); ?>>
-    <header class="entry-content small-16 medium-12 medium-offset-3 columns no-pad-l no-pad-r">
+    <header class="entry-content small-16 medium-12 medium-offset-2 columns  no-pad-r">
       <div class="page-category-label"> Post category </div>
         <h1 class="entry-title"><?php the_title(); ?></h1>
     </header>
-    <div class="entry-content small-16 medium-12 medium-offset-3 columns no-pad-l no-pad-r">
+    <div class="entry-content small-16 medium-12 medium-offset-2 columns  no-pad-r">
 
       <?php the_content(); ?>
     </div> <!-- end .entry-content -->
@@ -15,7 +15,7 @@
       <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
     </footer>
 
-    <div class="relatedposts medium-3 small-12">
+    <div class="relatedposts medium-2 small-12">
       <h3>Related</h3>
      <?php
 
@@ -37,7 +37,7 @@
                     setup_postdata($post);
             ?>
                 <li>
-                    <a href="<?php the_permalink() ?>" title="<?php the_title() ?>" rel="bookmark">
+                    <a href="<?php the_permalink() ?>#post-content" title="<?php the_title() ?>" rel="bookmark">
                       <?php the_title() ?>
                     </a>
                 </li>

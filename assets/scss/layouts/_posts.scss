@@ -17,6 +17,10 @@
 	@extend .columns;
 }
 
+.entry-content p img {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
 
 // search results
 .search-results article {
@@ -45,7 +49,9 @@ article .relatedposts {
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	margin-left: -25%;
+	margin-left: -17%;
+
+	.single-news & { margin-left: 0; }
 
 	@media #{$small-only} {
 		position: static;
@@ -73,10 +79,22 @@ article .relatedposts {
 		padding-bottom: 2px;
 	}
 
-	li a { color: black }
+	li a {
+		color: #4D4D4D;
+	}
+
 	li a:hover { text-decoration: underline; }
+
+	.bg-black & {
+		li a { color: #4D4D4D; }
+	}
 }
 
+.bg-black article .relatedposts li a,
+.bg-black article .relatedposts h3
+{
+	color: #4D4D4D;
+}
 
 // other artworks in section
 

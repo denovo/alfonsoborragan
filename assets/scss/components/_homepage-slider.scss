@@ -51,6 +51,8 @@
 article .royalSlider {
    width: 100%;
    height: auto;
+   margin-top: 20px;
+   margin-bottom:20px;
 }
 
 .link__to-main-content {
@@ -68,4 +70,14 @@ article .royalSlider {
 		&:hover { border-bottom: solid 1px black; }
 	}
 
+}
+
+.rsPete .rsThumb.rsNavSelected {
+	background: none;
+}
+
+
+// play button for vimeo videos in slider
+.arve-play-background, .arve-play-background:focus, .arve-play-background:hover {
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAABBCAQAAAAk/gHOAAAA8klEQVR4Ae3WIQ+CABDF8ZdsJhoFEs3EJ7DYTCaCG4lMMZhNbmaDxayVQLG5Wc1UorMY2Gg42G4jadDxyvvfF/jtDhhQSimlvjRCgHDg8dErQIyEMBEcAyS0iTsEaQM2c8BFQh6EIoggwi+EPLtevJRMaJq6OhzJhLayWG6IBOt+81IyoT3J+UQkWI9ytSMT7CRUgp2ETLCTkAl2EiLBdkEl1FWeUQ9RFtM18Vl4Pbd76huRZ9Tvgq2fRLD1kwi2fhrB1k8i2PppBFu/fuJF+PPA5ROAiAqYAYBPBMQYo8snbWIBB71chIPOBA6UUkqpj70BZMQzi2Aw7n8AAAAASUVORK5CYII=') !important;
 }

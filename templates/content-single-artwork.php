@@ -1,4 +1,4 @@
-<?php echo '<h2 class="heading__page-title"><a class="homepage-link" href=" ' . get_option('home') . '">Calendar, News or Gestures</a></h2>'; ?>
+<?php echo '<h2 class="heading__page-title"><a class="homepage-link" href=" ' . get_option('home') . '#post-content">Calendar, News or Gestures</a></h2>'; ?>
 
 <?php
   // get artwork type from custom field and handle output accordingly
@@ -27,6 +27,7 @@
 
         } else {
             $parent = $wp_query->post->post_parent;
+            $hide_parent_posts = true;
         } ?>
 
         <?php
@@ -93,8 +94,6 @@
         <!-- <h3> other artworks in this section </h3> -->
         <?php
 
-
-
           $args = array(
             'post_type' => 'artworks',
             'posts_per_page' => '-1',
@@ -116,7 +115,7 @@
 
           while ( $these_artworks->have_posts() ) : $these_artworks->the_post();
 
-          if( ($post->post_parent == $parent) && (get_post_status ( $post ) == 'publish' )) {
+          if( ($post->post_parent == $parent) && (get_post_status ( $post ) == 'publish' ) && ( $hide_parent_posts !== true ) ) {
 
         ?>
         <!-- output the parent artwork title and link-->
