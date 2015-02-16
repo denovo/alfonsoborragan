@@ -1,6 +1,3 @@
-<div class="snap-to-this">
-</div>
-
 <?php
  // show the featured images slider at the top of every page
   echo get_new_royalslider(1);

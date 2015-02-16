@@ -1,6 +1,21 @@
 <?php the_content(); ?>
 
-<?php  // get theme options
+<?php
+
+  // get total number of news posts
+  $args = array(
+     'posts_per_page' => -1,
+     'post_type' => 'news',
+  );
+  $myquery = new WP_Query($args);
+  $all_events = 0;
+  $all_events = $myquery->found_posts;
+
+  //var_dump($all_events);
+
+
+
+  // get number of events to show on homepage initially from value entered in theme options
   $theme_options = get_option( 'pu_theme_options' );
   $num_of_events = $theme_options['num_of_events'];
   // if integer value not set show 30 events by default
@@ -28,6 +43,8 @@
   	    'posts_per_page' => $num_of_events
   	);
   	$query = new WP_Query( $args );
+
+
 
 
   	if ( $query->have_posts() )
@@ -99,7 +116,7 @@
                   case 'Link Only':
                     $the_content_link = get_field('content_link');
                     ?>
-                        <a href="<?php echo $the_content_link['url'] ?>" target="<?php echo $the_content_link['target'] ?>"><?php echo $news_title; ?></a>
+                        <a href="<?php echo $the_content_link['url'] ?>#post-content" target="<?php echo $the_content_link['target'] ?>"><?php echo $news_title; ?></a>
                     <?php
                     break;
 
@@ -131,9 +148,11 @@
     ?>
 
 
-    <div class="news__view-all-link medium-15">
-      <a href="<?php echo get_page_link(205); ?>#post-content">old entries</a>
-    </div>
+    <?php if ($num_of_events < $all_events) { ?>
+      <div class="news__view-all-link medium-15">
+        <a href="<?php echo get_page_link(205); ?>#post-content">more entries</a>
+      </div>
+    <?php } ?>
 
    </div> <!-- end .panel__news-events -->
 

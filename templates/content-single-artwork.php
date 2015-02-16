@@ -46,47 +46,47 @@
       <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
     </footer>
 
-    <div class="relatedposts medium-3 small-12">
-      <h3>Related</h3>
-      <?php
-        /* $artwork_tags is a variable you can change to something more suitable throughout */
-        /* project_id is the name of the custom taxonomy */
-        $artwork_tags = get_the_terms( $post->ID, "artwork_tags" );
-
-        if ( ! is_wp_error( $artwork_tags ) && is_array( $artwork_tags ) ) {
-        $term = array_shift( $artwork_tags );
-        /* $artwork_tag is a variable you can change to something more suitable throughout */
-        $artwork_tag = null;
-        if ( isset( $term->slug ) && isset( $term->taxonomy ) ) {
-        $artwork_tag = get_posts( array(
-            'term' => $term->slug,
-            'taxonomy' => $term->taxonomy,
-            'post_type' => 'artworks',
-            'orderby' => 'menu_order',
-            'order' => 'asc',
-            'numberposts' => '0', // 0 will show all results
-            'post_status' => 'publish',
-        ) );
-        }
-
-        // Loop over all posts of the CPT and display them
-        if ( $artwork_tag ) {
-            $_post = $post;
-            print '<ul>';
-                foreach ( (array) $artwork_tag as $post ) {
-                  if ($post->ID != $cunt_post){
-                    setup_postdata( $post );
-                    the_title( '<li><a href="' . esc_url( get_permalink() ) . "#post-content" .'">', '</a></li>' );
-                  }
-                }
-            print '<ul>';
-            $post = $_post;
-        }
-        }
-        ?>
 
 
-    </div> <!-- // end related posts ?> -->
+    <?php if( have_rows('artwork_related_links') ): ?>
+      <div class="relatedposts medium-3 small-12">
+          <h3>Related</h3>
+
+          <ul class="list__related-links">
+
+          <?php while( have_rows('artwork_related_links') ): the_row();
+
+            // vars
+            $the_related_link = get_sub_field('related_link');
+            $link_url = $the_related_link['url'];
+            $link_title = $the_related_link['title'];
+
+            ?>
+
+            <li class="related-link">
+
+              <?php if( $link_url ): ?>
+                <a href="<?php echo $link_url; ?>">
+              <?php endif; ?>
+
+               <?php echo $the_related_link['title']; ?>
+
+              <?php if( $link_url ): ?>
+                </a>
+              <?php endif; ?>
+
+                <!-- <?php echo $content; ?> -->
+
+            </li>
+
+          <?php endwhile; ?>
+
+          </ul>
+      </div> <!-- // end related posts ?> -->
+    <?php endif; ?>
+
+
+
 
   </article>
 

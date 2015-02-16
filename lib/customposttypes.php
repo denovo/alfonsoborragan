@@ -141,29 +141,6 @@ add_action('init', 'artworks_register_post_type');
 
 
 
-/*
-*  3. register tags for artworks (related posts)
-*/
-
-function artwork_types_init() {
-  // create a new taxonomy
-  register_taxonomy(
-    'artwork_tags',
-    'artworks',
-    array(
-      'label' => __( 'Artwork tags (for related artworks)' ),
-      'rewrite' => array( 'slug' => 'artwork_tags' ),
-      'hierarchical'      => true,
-      'show_ui'           => true,
-      'show_admin_column' => true,
-      'query_var'         => true
-    )
-  );
-}
-
-add_action( 'init', 'artwork_types_init' );
-
-
 
 
 

@@ -1,6 +1,9 @@
 .list__news_events {
 	list-style-type: none;
 	margin-left: 0;
+
+	a { border-bottom: none;}
+	a:hover {border-bottom: 1px solid;}
 }
 
 // .home .content {

@@ -61,8 +61,24 @@
 .list__sidebar__artworks__parent-item {
 	padding-top: 7px;
 	padding-bottom: 0;
+
+	& span:after {
+		// content: "-";
+		// color: gray;
+		// @include chevron('top');
+	}
 }
 
+
+
+.list__sidebar__artworks__parent-item.closed {
+	& span:after {
+		// content: "\25BE";
+		// color: gray;
+		// @include chevron('bottom');
+	}
+	ul{ display: none;}
+}
 
 .list__sidebar__artworks__children li {
 	margin-left: 2.25rem ;
@@ -76,4 +92,8 @@
 	&:first-child {
 		padding-top: 4px;
 	}
+}
+
+.toggle-icon-arrow {
+	padding-left: 6px;
 }

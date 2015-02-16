@@ -15,6 +15,17 @@ html, body {
 h1 {
 	line-height: 1.3;
 	padding-bottom: 18px;
+	font-size: 1.2rem;
+}
+
+.main a {
+	border-bottom: 1px solid;
+	color: black;
+	&:hover {
+		color: $text-link-hover-color;
+		border-bottom: 1px solid $text-link-hover-color;
+
+	}
 }
 
 a:hover { color: darken($primary-color, 50); }

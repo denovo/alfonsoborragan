@@ -83,7 +83,7 @@ article .relatedposts {
 		color: #4D4D4D;
 	}
 
-	li a:hover { text-decoration: underline; }
+	li a:hover { border-bottom: 1px solid; }
 
 	.bg-black & {
 		li a { color: #4D4D4D; }
@@ -103,8 +103,8 @@ article .relatedposts {
 	li a {
 		font-size: 16px;
 		color: black; }
-	li a:hover { text-decoration: underline;}
-	li.current-post a { color: gray; text-decoration: underline}
+	// li a:hover { text-decoration: underline;}
+	li.current-post a { color: gray; border-bottom: 1px solid;}
 
 	.bg-black & {
 		li { color: gray }

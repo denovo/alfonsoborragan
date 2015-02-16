@@ -16,10 +16,10 @@
  * ======================================================================== */
 
 (function ($) {
-
 // Use this variable to set up the common and page specific functions. If you
 // rename this variable, you will also need to rename the namespace below.
 var Roots = {
+
   // All pages
   common: {
     init: function () {
@@ -30,77 +30,96 @@ var Roots = {
       // handle mailto links - show confirm before launching mail client
       $(".menu-contact").find("a").confirmMailto();
 
+      var lastScrollTop = $(window).scrollTop();
+      if (lastScrollTop !== 0) {
+        var delta = $('#new-royalslider-1').height() - lastScrollTop;
+        $('#new-royalslider-1 .rsGCaption').css({
+          opacity: delta/900
+        });
+      }
 
-      var snappr_options = {
-        panelSelector: '.royalSlider',
-        directionThreshold: 50,
-        slideSpeed: 200,
-        easing: 'linear',
-        keyboardNavigation: {
-          enabled: true,
-          nextPanelKey: 40,
-          previousPanelKey: 38,
-          wrapAround: true
+      // fade effect for header/top image royal slider - debounced 25ms
+      $(window).scroll(function(event){
+
+        clearTimeout($.data(this, "fadeTimer"));
+        $.data(this, "fadeTimer", setTimeout(function() {
+
+          var scrollAmt = $(this).scrollTop();
+          var deltaS = scrollAmt - lastScrollTop;
+
+            $('#new-royalslider-1 .rsGCaption').css({
+              opacity: "-=" + deltaS/400,
+
+            });
+
+            $('#new-royalslider-1 .js-content-link').css({
+            opacity: "-=" + deltaS/400
+            });
+
+            $('#new-royalslider-1 .rsMainSlideImage').css({
+              opacity: "-=" + deltaS/700
+            });
+
+          lastScrollTop = scrollAmt;
+
+        }, 5));
+
+      }); // end scroll funk
+
+
+      // smooth scrolling for in-page links
+      $('a[href*=#]:not([href=#])').click(function() {
+
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
         }
-      };
+      });
 
+
+      // Sidebar JS
+      // check for links with siblings and add toggleable to the parent item link
+
+      $( ".list__sidebar__artworks__parent-item" ).each(function( index ) {
+         var dis = $(this);
+         if (dis.find(".list__sidebar__artworks__children").length)
+         {
+            dis.addClass("toggleable");
+            dis.find("> a").append('<span class="toggle-icon-arrow"></span>')
+         }
+
+      });
+
+
+      // setup menu bindings for expandable menu headings
+      $( ".list__sidebar__artworks__parent-item.toggleable" ).on( "click", "> a span", function(e) {
+
+        e.preventDefault();
+        var dis = $(this);
+        dis.closest("li").toggleClass("closed");
+
+      });
 
 
 
       $(window).load(function() {
-
         if (!$('body').hasClass('mobile')) {
           var content_height = ($('.content').height());
           $('.sidebar').css("height", (content_height + 100));
         }
-
-        // $('body').panelSnap();
-
-        // set slider heights
-        resizeSlider();
-
       });
 
 
 
 
-      // set slider auto height to full screen height on window resize (uses debounce to minimise CPU usage)
-      var resizeSlider = function () {
-          // homepage slider resize function
-          var rslider = $('.royalSlider.new-royalslider-1.rsPete');
-          rslider.css({
-              width: $(window).innerWidth(),
-              height: $(window).innerHeight()
-          });
-          // var datarslider = rslider.data('royalSlider');
-          // datarslider.updateSliderSize();
-
-      };
 
 
-
-      // debounce that mo-fo to save CPU
-      $(window).resize(function() {
-        clearTimeout($.data(this, "resizeTimer"));
-        $.data(this, "resizeTimer", setTimeout(function() {
-           resizeSlider();
-
-        }, 200));
-      });
-
-      // $('.js-content-link').on('click', function () {
-
-      //   $('.home .content').fadeIn();
-      //   if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      //       var target = $(this.hash);
-      //       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      //       if (target.length) {
-      //         $('html,body').animate({
-      //           scrollTop: target.offset().top
-      //         }, 1000);
-      //         return false;
-      //       }
-      // }
 
     }
 

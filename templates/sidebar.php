@@ -81,19 +81,25 @@ endif; ?>
 		    	};
 		    ?>
 			<!-- output the parent artwork title and link-->
-	        <li class="list__sidebar__artworks__parent-item <?php if ($post->ID == $curnt_post) { echo "active";} ?>" id="post-<?php the_ID(); ?>">
-	        <?php //var_dump($hide_siblings); ?>
-	        	<?php if (get_field('title_page_only')) {
+	        <li class="list__sidebar__artworks__parent-item
+	        	<?php
+	        		if ($post->ID == $curnt_post) { echo "active";}
+	        		if ($hide_siblings == 'true') { echo "closed";}
+	        	?>" id="post-<?php the_ID(); ?>">
 
+	        	<?php if (get_field('title_page_only')) { ?>
+	        		<a class="title_only">
+	        		<?php
 	        		if (get_field('title_for_sidebar')) {
 	        			echo get_field('title_for_sidebar');
 	        		}
 	        		else {
 	        			the_title();
 	        		}
-	        	}
-	        	else { ?>
-	          	<a href="<?php the_permalink(); ?>#post-content">
+	        		?>
+	        		</a>
+	        		<?php } else { ?>
+	          		<a href="<?php the_permalink(); ?>#post-content">
 	          		<?php
 		          		if (get_field('title_for_sidebar')) {
 		        			echo get_field('title_for_sidebar');
@@ -116,8 +122,8 @@ endif; ?>
 					);
 
 					$subposts = get_posts( $child_args );
-					// don't show siblings if hide_siblings selectbox has been checked
-					if (( count($subposts) > 0) && ($hide_siblings != 'true') ) {
+
+					if ( count($subposts) > 0 ) {
 						echo '<ul class="list__sidebar__artworks__children">';
 
 						foreach ( $subposts as $post ) :

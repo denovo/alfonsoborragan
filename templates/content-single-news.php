@@ -15,43 +15,43 @@
       <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
     </footer>
 
-    <div class="relatedposts medium-2 small-12">
-      <h3>Related</h3>
-     <?php
+    <?php if( have_rows('news_related_links') ): ?>
+      <div class="relatedposts medium-3 small-12">
+          <h3>Related</h3>
 
-        $backup = $post;
-        $current = $post->ID; //current page ID
+          <ul class="list__related-links">
 
-        global $post;
-        $thisPost = get_post_type(); //current custom post
-        $myposts = get_posts('numberposts=3&order=DESC&orderby=ID&post_type=' . $thisPost .
-        '&exclude=' . $current);
+          <?php while( have_rows('news_related_links') ): the_row();
 
-        $check = count($myposts);
+            // vars
+            $the_related_link = get_sub_field('related_link');
+            $link_url = $the_related_link['url'];
+            $link_title = $the_related_link['title'];
 
-        if ($check > 1 ) { ?>
-        <div id="related" class="group">
-            <ul class="group">
-            <?php
-                foreach($myposts as $post) :
-                    setup_postdata($post);
             ?>
-                <li>
-                    <a href="<?php the_permalink() ?>#post-content" title="<?php the_title() ?>" rel="bookmark">
-                      <?php the_title() ?>
-                    </a>
-                </li>
 
-            <?php endforeach; ?>
-            </ul>
-        <?php
-            $post = $backup;
-            wp_reset_query();
-        ?>
+            <li class="related-link">
 
-    </div><!-- #related -->
-<?php } ?>
-    </div> <!-- // end related posts ?> -->
+              <?php if( $link_url ): ?>
+                <a href="<?php echo $link_url; ?>">
+              <?php endif; ?>
+
+               <?php echo $the_related_link['title']; ?>
+
+              <?php if( $link_url ): ?>
+                </a>
+              <?php endif; ?>
+
+                <!-- <?php echo $content; ?> -->
+
+            </li>
+
+          <?php endwhile; ?>
+
+          </ul>
+      </div> <!-- // end related posts ?> -->
+    <?php endif; ?>
+
 
   </article>
 

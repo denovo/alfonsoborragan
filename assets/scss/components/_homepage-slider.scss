@@ -20,11 +20,6 @@
 
 }
 
-//  [ + ] button
-.reveal-main-content {
-
-}
-
 .rsPete .rsGCaption {
 	position: absolute;
 	float: none;
@@ -36,6 +31,7 @@
 	color: #FFF;
 	padding: 12px;
 	width: 37%;
+	max-width: 370px;
 	font-size: 12px;
 	line-height: 1.3em;
 	border-radius: 0;
@@ -55,6 +51,8 @@ article .royalSlider {
    margin-bottom:20px;
 }
 
+
+//  [ + ] button
 .link__to-main-content {
 	display: block;
 	position: absolute;
@@ -64,12 +62,21 @@ article .royalSlider {
 	text-align: center;
 	margin-left: -25px;
 	z-index: 88888;
-	a:hover{ border-bottom: solid 1px white;}
-	&.__black a {
-		color: black !important;
-		&:hover { border-bottom: solid 1px black; }
+	a {font-weight: bold;}
+	a:hover{
+		border-bottom: 0;
+		text-decoration: none;
 	}
 
+	&.__black a {
+		color: black !important;
+	}
+}
+
+a.slider__read-more-link {
+	font-weight: bold;
+	text-decoration: underline;
+	&:hover { text-decoration: none;}
 }
 
 .rsPete .rsThumb.rsNavSelected {

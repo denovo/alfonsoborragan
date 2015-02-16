@@ -4,7 +4,7 @@
 	.homepage-link {
 		color: $lighter-gray-text;
 		font-size: rem-calc(16);
-		&:hover { color: $text-link-hover-color; border-bottom: solid 1px black}
+		&:hover { color: $text-link-hover-color; border-bottom: solid 1px $text-link-hover-color}
 
 		@media #{$small-only} { display: none;}
 
